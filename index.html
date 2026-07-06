@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AD Soluções — Consultoria de longevidade especializada em saúde coletiva e seguros de vida para profissionais liberais (médicos, advogados, dentistas) e empresas de alta renda. Mais de 20 anos de tradição.">
+    <meta name="keywords" content="AD Soluções, consultoria de seguros, saúde coletiva, seguro de vida, profissionais liberais, médicos, advogados, dentistas, blindagem patrimonial, longevidade">
+    <meta name="author" content="AD Soluções">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.adsolucoes.com.br/">
+    <meta property="og:title" content="AD Soluções | Consultoria de Longevidade em Saúde e Seguros">
+    <meta property="og:description" content="Protegemos o trabalho, o sustento e o futuro de sua família com inteligência, clareza e acolhimento. Desde 2003.">
+    <meta property="og:image" content="assets/foto 1.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.adsolucoes.com.br/">
+    <meta property="twitter:title" content="AD Soluções | Consultoria de Longevidade em Saúde e Seguros">
+    <meta property="twitter:description" content="Protegemos o trabalho, o sustento e o futuro de sua família com inteligência, clareza e acolhimento. Desde 2003.">
+    <meta property="twitter:image" content="assets/foto 1.png">
+
+    <title>AD Soluções | Consultoria de Longevidade em Saúde e Seguros</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.adsolucoes.com.br/">
+
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "InsuranceAgency",
+      "name": "AD Soluções",
+      "alternateName": "AD Soluções Consultoria",
+      "url": "https://www.adsolucoes.com.br/",
+      "logo": "https://www.adsolucoes.com.br/assets/foto%201.png",
+      "image": "https://www.adsolucoes.com.br/assets/foto%201.png",
+      "description": "Consultoria de longevidade especializada em saúde coletiva e seguros de vida para profissionais liberais (médicos, advogados, dentistas) e empresas de alta renda.",
+      "foundingDate": "2003",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-11-4003-0000",
+        "contactType": "customer service",
+        "areaServed": "BR",
+        "availableLanguage": "Portuguese"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/ad-solucoes",
+        "https://www.instagram.com/adsolucoes"
+      ]
+    }
+    </script>
+    
+    <!-- Favicon (Fallback standard) -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="main-header" id="header">
+        <div class="header-container">
+            <a href="#inicio" class="logo-link" aria-label="AD Soluções Home">
+                <div class="logo-wrapper">
+                    <!-- Real logo from assets -->
+                    <img src="assets/logo.png" alt="AD Soluções - Consultoria de Saúde e Seguros" class="logo-img" width="40" height="40">
+                    <span class="logo-text">AD <span class="logo-subtext">Soluções</span></span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Menu -->
+            <nav class="nav-menu" id="nav-menu" role="navigation" aria-label="Menu principal">
+                <ul>
+                    <li><a href="#diferenciais" class="nav-link">Diferenciais</a></li>
+                    <li><a href="#solucoes" class="nav-link">Soluções</a></li>
+                    <li><a href="#sobre" class="nav-link">Nossa Trajetória</a></li>
+                    <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
+                    <!-- <li><a href="simulador.html" class="nav-link highlight-link" style="color: var(--color-secondary); font-weight: 700;">Simulador (Dinâmico)</a></li> -->
+                    <li><a href="simulador-grade.html" class="nav-link highlight-link" style="color: var(--color-secondary); font-weight: 700;">Simulador</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Theme Toggle Button -->
+                <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Alternar tema escuro/claro">
+                    <i data-lucide="moon" class="theme-toggle-icon"></i>
+                </button>
+                <button class="btn btn-primary btn-sm btn-open-modal" id="btn-header-diagnostico">Agendar Diagnóstico</button>
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menu de navegação">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+        <div class="drawer-header">
+            <span class="logo-text-drawer">AD <span>Soluções</span></span>
+            <button class="drawer-close" id="drawer-close" aria-label="Fechar menu">&times;</button>
+        </div>
+        <nav class="drawer-nav">
+            <ul>
+                <li><a href="#diferenciais" class="drawer-link">Diferenciais</a></li>
+                <li><a href="#solucoes" class="drawer-link">Soluções</a></li>
+                <li><a href="#sobre" class="drawer-link">Nossa Trajetória</a></li>
+                <li><a href="#depoimentos" class="drawer-link">Depoimentos</a></li>
+                <li><a href="simulador.html" class="drawer-link" style="color: var(--color-secondary); font-weight: 700;">Simulador (Dinâmico)</a></li>
+                <li><a href="simulador-grade.html" class="drawer-link" style="color: var(--color-secondary); font-weight: 700;">Simulador (Grade)</a></li>
+            </ul>
+            <button class="btn btn-primary btn-block btn-open-modal" style="margin-top: 2rem;">Agendar Diagnóstico</button>
+        </nav>
+    </div>
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section id="inicio" class="hero-section">
+            <div class="hero-bg-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+            </div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i data-lucide="shield" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                        Consultoria de Longevidade · Desde 2003
+                    </div>
+                    <h1 class="hero-title">
+                        Clareza que direciona,<br>
+                        <span class="accent-text">cuidado que protege</span>.
+                    </h1>
+                    <p class="hero-subtitle">
+                        A consultoria definitiva para profissionais liberais que buscam blindar o núcleo familiar e estruturar o próprio negócio com excelência, com 20 anos de experiência e cuidado genuíno em cada análise.
+                    </p>
+                    <div class="hero-actions-container">
+                        <button class="btn btn-primary btn-lg btn-open-modal" id="btn-hero-primary">
+                            Quero minha análise gratuita
+                            <i data-lucide="arrow-right" class="icon-inline" style="margin-left: 8px;"></i>
+                        </button>
+                        <a href="simulador.html" class="btn btn-secondary btn-lg">Simulador de Preços</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-num">20+</span>
+                            <span class="stat-label">Anos de Mercado</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-num">100%</span>
+                            <span class="stat-label">Transparência Garantida</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-num">0</span>
+                            <span class="stat-label">Letras miúdas ocultas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card-display">
+                        <div class="card-display-item glass-effect premium-badge-card">
+                            <span class="card-icon"><i data-lucide="book-open" class="color-primary"></i></span>
+                            <div>
+                                <h4>Clareza do Sábio</h4>
+                                <p>Análise técnica macro de contratos sem letras miúdas.</p>
+                            </div>
+                        </div>
+                        <div class="card-display-item glass-effect protective-badge-card">
+                            <span class="card-icon"><i data-lucide="heart" class="color-secondary"></i></span>
+                            <div>
+                                <h4>Cuidado do Cuidador</h4>
+                                <p>Pós-venda ativo e amparo total nos momentos decisivos.</p>
+                            </div>
+                        </div>
+                        <!-- Central Brand Logo -->
+                        <div class="lotus-graphic-container">
+                            <img src="assets/logo-icon.png" alt="AD Soluções" class="hero-brand-logo" width="160" height="160">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diferenciais Section -->
+        <section id="diferenciais" class="section-padding-large diferencias-section reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Por que a AD Soluções?</span>
+                    <h2>Como redefinimos o conceito de proteção</h2>
+                    <p class="section-description">
+                        Recusamos o modelo de corretoras comuns focadas apenas em fechar contratos rápidos e brigar por centavos. Nossa atuação baseia-se em cinco pilares fundamentais de excelência técnica e humana.
+                    </p>
+                </div>
+
+                <div class="diferenciais-grid">
+                    <!-- Card 1 -->
+                    <div class="diferencial-card">
+                        <div class="card-icon-box bg-marsala-light">
+                            <i data-lucide="trending-up" class="icon-diferencial color-primary"></i>
+                        </div>
+                        <h3>Análise Macro</h3>
+                        <p>Visão estratégica e profunda de todo o cenário de saúde e proteção. Projetamos o impacto financeiro e jurídico a longo prazo de cada decisão, muito além de meras planilhas comparativas.</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="diferencial-card">
+                        <div class="card-icon-box bg-green-light">
+                            <i data-lucide="handshake" class="icon-diferencial color-secondary"></i>
+                        </div>
+                        <h3>Pós-Venda Ativo</h3>
+                        <p>O cuidado verdadeiro começa após a assinatura da apólice. Acompanhamos ativamente reajustes, alterações regulatórias e transições de vida dos nossos clientes, oferecendo suporte humano incondicional.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="diferencial-card">
+                        <div class="card-icon-box bg-marsala-light">
+                            <i data-lucide="scale" class="icon-diferencial color-primary"></i>
+                        </div>
+                        <h3>Sinceridade Estrutural</h3>
+                        <p>Dizemos o que você precisa ouvir para estar de fato seguro, não o que facilita o fechamento comercial imediato. Sem letras miúdas e sem omitir limitações contratuais.</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="diferencial-card">
+                        <div class="card-icon-box bg-green-light">
+                            <i data-lucide="award" class="icon-diferencial color-secondary"></i>
+                        </div>
+                        <h3>Bagagem de 20 Anos</h3>
+                        <p>Fundada em 2003, acumulamos a solidez e o conhecimento empírico que nenhuma nova corretora digital pode replicar. Sabemos exatamente como os contratos se comportam em momentos de crise.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Soluções Section -->
+        <section id="solucoes" class="section-padding-large soluções-section bg-soft-pink-tint reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Nossas Soluções</span>
+                    <h2>Estruturação inteligente de benefícios e proteção</h2>
+                    <p class="section-description">
+                        Atuamos em duas frentes fundamentais, integrando soluções corporativas e familiares para garantir a longevidade da sua trajetória.
+                    </p>
+                </div>
+
+                <div class="solucoes-container">
+                    <!-- Solução 1: Saúde Coletiva -->
+                    <div class="solucao-block">
+                        <div class="solucao-content">
+                            <span class="solucao-badge badge-green">Para o seu Negócio</span>
+                            <h3>Planos de Saúde Coletiva e PMEs</h3>
+                            <p>
+                                Traduzimos a complexidade técnica e a burocracia dos contratos de saúde empresariais. Analisamos profundamente sinistralidade e reajustes para criar planos eficientes para consultórios, clínicas médicas, escritórios de advocacia e PMEs.
+                            </p>
+                            <ul class="solucao-features">
+                                <li>
+                                    <i data-lucide="check" class="feature-check"></i>
+                                    Gestão ativa e preventiva da sinistralidade
+                                </li>
+                                <li>
+                                    <i data-lucide="check" class="feature-check"></i>
+                                    Planejamento de transição de contratos sem carências abusivas
+                                </li>
+                                <li>
+                                    <i data-lucide="check" class="feature-check"></i>
+                                    Estruturação de coparticipação inteligente e governança de benefícios
+                                </li>
+                            </ul>
+                            <button class="btn btn-secondary btn-open-modal">Analisar Plano Atual</button>
+                        </div>
+                        <div class="solucao-visual bg-pattern-green">
+                            <div class="solucao-mockup-card glass-effect">
+                                <div class="mockup-header">
+                                    <span class="mockup-dot"></span>
+                                    <span class="mockup-dot"></span>
+                                    <span class="mockup-dot"></span>
+                                    <span class="mockup-title">Diagnóstico de Saúde CNPJ</span>
+                                </div>
+                                <div class="mockup-body">
+                                    <div class="mockup-metric">
+                                        <span class="metric-label">Custos Projetados (Próximo Reajuste)</span>
+                                        <span class="metric-val color-primary" style="color: var(--color-primary);">-24.3%</span>
+                                    </div>
+                                    <div class="mockup-bar-container">
+                                        <div class="mockup-bar bar-1"></div>
+                                    </div>
+                                    <div class="mockup-status-list">
+                                        <div class="status-item-mock"><i data-lucide="shield-check" class="status-icon"></i> Isenção de Carência: <strong>Garantida</strong></div>
+                                        <div class="status-item-mock"><i data-lucide="activity" class="status-icon"></i> Mitigação de Sinistralidade: <strong>Ativa</strong></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Solução 2: Seguro de Vida -->
+                    <div class="solucao-block reverse">
+                        <div class="solucao-content">
+                            <span class="solucao-badge badge-marsala">Para sua Família</span>
+                            <h3>Seguros de Vida & Proteção de Renda</h3>
+                            <p>
+                                Profissionais liberais de alto padrão dedicam suas vidas a estruturar patrimônios sólidos, mas muitas vezes esquecem de blindar o sustento familiar na ocorrência de imprevistos. Desenhamos apólices sob medida focadas em resguardar seu padrão de vida e simplificar processos sucessórios.
+                            </p>
+                            <ul class="solucao-features">
+                                <li>
+                                    <i data-lucide="check" class="feature-check"></i>
+                                    Proteção de renda contra invalidez temporária ou profissional (DIT)
+                                </li>
+                                <li>
+                                    <i data-lucide="check" class="feature-check"></i>
+                                    Estruturação de blindagem patrimonial com liquidez imediata
+                                </li>
+                                <li>
+                                    <i data-lucide="check" class="feature-check"></i>
+                                    Planejamento sucessório livre de inventários e ITCMD
+                                </li>
+                            </ul>
+                            <button class="btn btn-secondary btn-open-modal">Estruturar Proteção</button>
+                        </div>
+                        <div class="solucao-visual bg-pattern-marsala">
+                            <div class="solucao-mockup-card glass-effect">
+                                <div class="mockup-header">
+                                    <span class="mockup-dot"></span>
+                                    <span class="mockup-dot"></span>
+                                    <span class="mockup-dot"></span>
+                                    <span class="mockup-title">Planejamento Sucessório &amp; Renda</span>
+                                </div>
+                                <div class="mockup-body">
+                                    <div class="mockup-metric">
+                                        <span class="metric-label">Liquidez Imediata (Livre de ITCMD)</span>
+                                        <span class="metric-val color-secondary" style="color: var(--color-primary);">100%</span>
+                                    </div>
+                                    <div class="mockup-coverage-box">
+                                        <div class="coverage-row">
+                                            <span>Proteção de Renda (DIT)</span>
+                                            <strong>R$ 15k / mês</strong>
+                                        </div>
+                                        <div class="coverage-row">
+                                            <span>Blindagem Patrimonial</span>
+                                            <strong>R$ 1.5M</strong>
+                                        </div>
+                                    </div>
+                                    <div class="mockup-tag"><i data-lucide="heart" class="icon-inline" style="width: 12px; height: 12px; margin-right: 4px;"></i> Família Blindada</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre Nós (Nossa Trajetória) Section -->
+        <section id="sobre" class="section-padding-large sobre-section reveal">
+            <div class="container sobre-container">
+                <div class="sobre-text-column">
+                    <span class="section-tag text-left">Nossa Trajetória</span>
+                    <h2>Mais de duas décadas de compromisso e solidez.</h2>
+                    
+                    <p class="paragraph-highlight">
+                        A AD Soluções nasceu em 2003 a partir de uma constatação vital: por trás de cada CNPJ de sucesso, existe um núcleo familiar que depende inteiramente daquela estrutura para se manter protegido.
+                    </p>
+                    
+                    <p>
+                        Ao longo de mais de 20 anos de atuação, recusamos a comoditização do mercado. Aprendemos que o verdadeiro valor de uma consultoria não está em brigar por centavos ou empurrar produtos de prateleira, mas sim na realização de uma análise macro honesta, na tradução da complexidade dos seguros em clareza absoluta e na proximidade genuína.
+                    </p>
+                    
+                    <p>
+                        Apoiados nos pilares da sabedoria técnica e do acolhimento humano, ajudamos profissionais liberais de alta renda — como médicos, dentistas, arquitetos e advogados — a deixarem de ver seguros como burocracia ou custo e passarem a percebê-los como um pilar essencial de tranquilidade e legado.
+                    </p>
+
+                    <div class="founder-quote">
+                        <blockquote>
+                            "Não vendemos contratos. Entregamos longevidade e a certeza de que o futuro que você está construindo hoje permanecerá inabalável amanhã."
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="sobre-visual-column">
+                    <div class="image-frame-wrapper">
+                        <div class="image-accent-bg"></div>
+                        <!-- Inserted custom asset as requested by user -->
+                        <img src="assets/foto 1.png" alt="Equipe sênior e fundadores da AD Soluções em reunião" class="founder-image" loading="lazy" decoding="async" width="440" height="480">
+                        <div class="image-overlay-card">
+                            <span class="lotus-stamp">
+                                <img src="assets/logo-icon.png" alt="" height="20" width="20">
+                            </span>
+                            <div>
+                                <h5>AD Soluções</h5>
+                                <p>Sua parceira estratégica desde 2003</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="depoimentos" class="section-padding-large depoimentos-section bg-off-white reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Depoimentos</span>
+                    <h2>A palavra de quem confia sua tranquilidade à AD</h2>
+                    <p class="section-description">
+                        Histórias de transformação: como profissionais liberais sofisticados saíram do cenário de insegurança e burocracia para a total paz de espírito.
+                    </p>
+                </div>
+
+                <div class="depoimentos-carousel" id="depoimentos-carousel">
+                    <div class="depoimentos-track-container">
+                        <div class="depoimentos-track" id="depoimentos-track">
+                            <!-- Testimonial 1 -->
+                            <div class="depoimento-card">
+                                <div class="depoimento-stars">★★★★★</div>
+                                <p class="depoimento-text">
+                                    "Como médica e sócia de clínica, sempre dediquei todo meu tempo a cuidar dos pacientes, mas deixava a segurança financeira do meu próprio negócio e da minha família de lado. O diagnóstico da AD Soluções me deu clareza sobre riscos que eu nem imaginava. O atendimento e o pós-venda deles são impecáveis e extremamente humanos."
+                                </p>
+                                <div class="depoimento-author">
+                                    <div class="author-avatar">DV</div>
+                                    <div>
+                                        <h4>Dra. Camila Vasconcellos</h4>
+                                        <span class="author-meta">Cardiologista e Sócia-Fundadora de Clínica</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Testimonial 2 -->
+                            <div class="depoimento-card">
+                                <div class="depoimento-stars">★★★★★</div>
+                                <p class="depoimento-text">
+                                    "Eu via a contratação de planos de saúde e seguros como uma burocracia cansativa, cheia de letras miúdas. A AD Soluções mudou completamente essa percepção. Eles analisaram nosso CNPJ de forma macro, nos explicaram tudo de forma simples e direta, sem termos técnicos opressores. Sinceridade de verdade."
+                                </p>
+                                <div class="depoimento-author">
+                                    <div class="author-avatar">RM</div>
+                                    <div>
+                                        <h4>Dr. Roberto Mendes</h4>
+                                        <span class="author-meta">Advogado e Sócio-Diretor de Escritório</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Testimonial 3 -->
+                            <div class="depoimento-card">
+                                <div class="depoimento-stars">★★★★★</div>
+                                <p class="depoimento-text">
+                                    "Minha família está com a AD Soluções há mais de 8 anos. Quando precisei acionar o seguro devido a um afastamento temporário de saúde, a assessoria deles fez toda a diferença. Cuidaram de toda a documentação, nos posicionando com rapidez e transparência. São parceiros essenciais na nossa vida."
+                                </p>
+                                <div class="depoimento-author">
+                                    <div class="author-avatar">MD</div>
+                                    <div>
+                                        <h4>Mariana Dornelles</h4>
+                                        <span class="author-meta">Arquiteta e Sócia PJ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Carousel Navigation Dots -->
+                    <div class="carousel-dots" id="carousel-dots">
+                        <button class="carousel-dot active" data-index="0" aria-label="Ir para depoimento 1"></button>
+                        <button class="carousel-dot" data-index="1" aria-label="Ir para depoimento 2"></button>
+                        <button class="carousel-dot" data-index="2" aria-label="Ir para depoimento 3"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section-padding-large faq-section bg-white reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Dúvidas Frequentes</span>
+                    <h2>Clareza sobre o mercado de saúde e proteção</h2>
+                    <p class="section-description">
+                        Esclarecemos as principais dúvidas de profissionais liberais e empresários antes de estruturarem suas apólices e benefícios.
+                    </p>
+                </div>
+
+                <div class="faq-container">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Como a AD Soluções ajuda na transição de planos de saúde para PMEs?</span>
+                            <i data-lucide="chevron-down" class="faq-chevron"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p>Analisamos detalhadamente o contrato atual de sua empresa para garantir a isenção de carências (obedecendo às normas da ANS e regras da operadora de destino) e estruturar tabelas de coparticipação inteligente. Além disso, mapeamos preventivamente a sinistralidade para mitigar aumentos anuais abusivos, mantendo a qualidade de atendimento aos seus sócios e colaboradores.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>O que é a cobertura DIT (Diária de Incapacidade Temporária) e por que ela é vital para profissionais liberais?</span>
+                            <i data-lucide="chevron-down" class="faq-chevron"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p>Para médicos, dentistas, advogados e outros profissionais liberais de alta renda, a receita cessa caso não possam trabalhar devido a doenças ou acidentes. A Diária de Incapacidade Temporária (DIT) garante o pagamento de rendimentos mensais equivalentes ao seu faturamento habitual durante o período de afastamento. Ela serve como a retaguarda que protege o sustento e o consultório sem forçar a queima de reservas financeiras.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Como é possível isentar o seguro de vida de inventário e impostos de sucessão?</span>
+                            <i data-lucide="chevron-down" class="faq-chevron"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p>Pela legislação brasileira, o Seguro de Vida não é considerado herança para fins de inventário e partilha (Art. 794 do Código Civil). Portanto, a indenização é paga aos beneficiários indicados em poucos dias úteis, sem retenção de ITCMD (imposto de transmissão causa mortis) ou custas de advogados. Trata-se de uma ferramenta jurídica essencial para prover liquidez imediata ao núcleo familiar durante a sucessão patrimonial.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Por que a AD Soluções afirma que não briga por "menor preço" ou tabelas promocionais?</span>
+                            <i data-lucide="chevron-down" class="faq-chevron"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p>Corretoras tradicionais operam oferecendo cotações prateleira baratas que, nos momentos mais críticos (como sinistros ou reajustes de faixa etária), costumam apresentar negativas de cobertura ou aumentos inviáveis. A AD Soluções atua como uma consultoria estratégica: desenhamos a apólice com base nas reais necessidades do cliente e na segurança a longo prazo. Transparência estrutural e solidez valem muito mais do que descontos que custam caro depois.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Banner -->
+        <section class="final-cta-section">
+            <div class="container final-cta-container">
+                <div class="cta-content">
+                    <h2>Pronto para proteger o seu futuro e consolidar seu legado?</h2>
+                    <p>Agende uma conversa consultiva exclusiva e sem compromisso com um de nossos especialistas seniores. Analisaremos sua estrutura atual com total isenção.</p>
+                    <button class="btn btn-light btn-lg btn-open-modal" id="btn-final-cta">
+                        Agendar Diagnóstico Consultivo
+                        <i data-lucide="arrow-right" class="icon-inline" style="margin-left: 8px;"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-about">
+                <div class="logo-wrapper">
+                    <!-- SVG Lotus Small -->
+                    <img src="assets/logo.png" alt="AD Soluções" width="60" height="60">
+                    <span class="logo-text text-white">AD <span class="logo-subtext">Soluções</span></span>
+                </div>
+                <p class="footer-desc">Consultoria de longevidade especializada em saúde e seguros. Protegendo o trabalho, o patrimônio e as famílias com inteligência desde 2003.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com" target="_blank" aria-label="Acesse nosso LinkedIn">
+                        <i class="bi bi-linkedin" style="font-size: 20px;"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Acesse nosso Instagram">
+                        <i class="bi bi-instagram" style="font-size: 20px;"></i>
+                    </a>
+                    <a href="https://wa.me/5547992030912" target="_blank" aria-label="Acesse nosso WhatsApp">
+                        <i class="bi bi-whatsapp" style="font-size: 20px;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#diferenciais">Diferenciais</a></li>
+                    <li><a href="#solucoes">Soluções</a></li>
+                    <li><a href="#sobre">Nossa Trajetória</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Fale Conosco</h4>
+                <ul>
+                    <li>
+                        <i data-lucide="phone" class="icon-inline-footer" style="margin-right: 8px;"></i>
+                        (11) 4003-0000
+                    </li>
+                    <li>
+                        <i data-lucide="mail" class="icon-inline-footer" style="margin-right: 8px;"></i>
+                        contato@adsolucoes.com.br
+                    </li>
+                    <li>
+                        <i data-lucide="map-pin" class="icon-inline-footer" style="margin-right: 8px;"></i>
+                        São Paulo, SP
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-container">
+                <p>&copy; 2026 AD Soluções. Todos os direitos reservados. Consultoria de Saúde e Seguros desde 2003. &nbsp;|&nbsp; CNPJ: 00.000.000/0001-00</p>
+                <p class="footer-legal">As informações deste site são de caráter informativo. O escopo das coberturas e carências segue estritamente as regras de cada seguradora e operadora parceira.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lead Modal (Dark Theme) -->
+    <div class="modal-overlay" id="modal-overlay" aria-hidden="true">
+        <div class="modal-card modal-dark" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="modal-close-btn modal-close-dark" id="modal-close-btn" aria-label="Fechar modal">
+                <i data-lucide="x"></i>
+            </button>
+            
+            <!-- Lead Form View -->
+            <div id="modal-form-view">
+
+                <!-- Logo no topo -->
+                <div class="modal-logo-container">
+                    <img src="assets/logo.png" alt="AD Soluções" class="modal-logo" width="80" height="80">
+                </div>
+
+                <!-- Header -->
+                <div class="modal-header">
+                    <h3 id="modal-title">Fale com a AD</h3>
+                    <p>Preencha abaixo e entraremos em contato em até 24 horas.</p>
+                </div>
+
+                <!-- Form -->
+                <form id="lead-form" novalidate>
+
+                    <!-- Nome -->
+                    <div class="input-group">
+                        <label for="lead-name">Nome completo</label>
+                        <input type="text" id="lead-name" name="name" placeholder="Como podemos te chamar?" required>
+                        <span class="error-msg" id="name-error"></span>
+                    </div>
+
+                    <!-- WhatsApp -->
+                    <div class="input-group">
+                        <label for="lead-phone">WhatsApp</label>
+                        <input type="tel" id="lead-phone" name="phone" placeholder="(00) 00000-0000" required>
+                        <span class="error-msg" id="phone-error"></span>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="input-group">
+                        <label for="lead-email">E-mail <span style="font-weight:400; color: var(--color-text-muted);">(opcional)</span></label>
+                        <input type="email" id="lead-email" name="email" placeholder="seu@email.com.br">
+                    </div>
+
+                    <!-- Seleção de Interesse -->
+                    <div class="modal-interest-section">
+                        <p class="modal-interest-label">Estou buscando proteção para…</p>
+                        <div class="modal-cards-grid">
+                            <label class="modal-card-option" id="card-familia">
+                                <input type="radio" name="interest" value="Familia" checked>
+                                <div class="modal-card-inner">
+                                    <i data-lucide="home" class="modal-card-icon"></i>
+                                    <div class="modal-card-text">
+                                        <strong>Minha família</strong>
+                                        <span>Saúde &amp; vida pessoal</span>
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="modal-card-option" id="card-empresa">
+                                <input type="radio" name="interest" value="Empresa">
+                                <div class="modal-card-inner">
+                                    <i data-lucide="building-2" class="modal-card-icon"></i>
+                                    <div class="modal-card-text">
+                                        <strong>Minha empresa</strong>
+                                        <span>Benefícios &amp; CNPJ</span>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <button type="submit" class="btn btn-primary btn-block btn-submit" id="btn-submit-lead">
+                        <span class="btn-text">Solicitar Diagnóstico Consultivo</span>
+                        <span class="btn-loader hidden"></span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Success State View (Initially Hidden) -->
+            <div id="modal-success-view" class="hidden">
+                <div class="modal-logo-container">
+                    <img src="assets/logo.png" alt="AD Soluções" class="modal-logo" width="80" height="80">
+                </div>
+                <div class="success-illustration">
+                    <svg class="checkmark-svg" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                        <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                    </svg>
+                </div>
+                <h3>Consultoria Solicitada!</h3>
+                <p class="success-message">
+                    Obrigado, <strong id="success-user-name">Dr. Felipe</strong>. Nosso especialista entrará em contato via WhatsApp nas próximas <strong>24 horas</strong>.
+                </p>
+                <button class="btn btn-primary btn-block" id="btn-success-close">Concluir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>

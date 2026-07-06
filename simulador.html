@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simulador de Preços - AD Soluções. Faça uma simulação rápida e personalizada de planos de saúde de forma transparente e clara.">
+    <meta name="author" content="AD Soluções">
+    
+    <title>Simulador de Planos de Saúde | AD Soluções</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <style>
+        .simulator-section {
+            padding: 8rem 0 5rem 0;
+            min-height: 100vh;
+            position: relative;
+        }
+        .simulator-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+        @media (min-width: 992px) {
+            .simulator-grid {
+                grid-template-columns: 1.2fr 0.8fr;
+            }
+        }
+        .sim-card {
+            background: var(--color-white);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid rgba(89, 0, 4, 0.05);
+            transition: var(--transition-normal);
+        }
+        [data-theme="dark"] .sim-card {
+            background: #190a0c;
+            border-color: rgba(174, 142, 121, 0.15);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        @media (min-width: 576px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .sim-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .sim-input-group label {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        [data-theme="dark"] .sim-input-group label {
+            color: var(--color-secondary);
+        }
+        .sim-select, .sim-input {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border-radius: var(--border-radius-md);
+            border: 1.5px solid rgba(89, 4, 4, 0.15);
+            font-family: var(--font-body);
+            background: var(--color-off-white);
+            color: var(--color-text-dark);
+            outline: none;
+            transition: var(--transition-fast);
+        }
+        [data-theme="dark"] .sim-select, [data-theme="dark"] .sim-input {
+            background: #110406;
+            border-color: rgba(174, 142, 121, 0.25);
+            color: #FAF8F5;
+        }
+        .sim-select:focus, .sim-input:focus {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(89, 0, 4, 0.1);
+        }
+        /* Age distribution inputs */
+        .age-distribution-title {
+            margin: 2rem 0 1rem 0;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            border-bottom: 1px solid rgba(89, 0, 4, 0.1);
+            padding-bottom: 0.5rem;
+        }
+        [data-theme="dark"] .age-distribution-title {
+            color: var(--color-secondary);
+            border-bottom-color: rgba(174, 142, 121, 0.2);
+        }
+        .age-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .age-input-card {
+            background: var(--color-off-white);
+            border: 1px solid rgba(89, 0, 4, 0.08);
+            border-radius: var(--border-radius-md);
+            padding: 0.85rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        [data-theme="dark"] .age-input-card {
+            background: #110406;
+            border-color: rgba(174, 142, 121, 0.15);
+        }
+        .age-input-card span {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--color-text-muted);
+        }
+        .age-input-card input {
+            text-align: center;
+            width: 100%;
+            padding: 0.4rem;
+            border-radius: var(--border-radius-sm);
+            border: 1px solid rgba(89, 0, 4, 0.15);
+            background: var(--color-white);
+            color: var(--color-text-dark);
+            font-weight: bold;
+        }
+        [data-theme="dark"] .age-input-card input {
+            background: #1a0a0c;
+            border-color: rgba(174, 142, 121, 0.25);
+            color: #FAF8F5;
+        }
+        
+        /* Result Tables */
+        .results-container {
+            margin-top: 3rem;
+            display: none;
+        }
+        .results-container.active {
+            display: block;
+        }
+        .sim-disclaimer {
+            background: rgba(174, 142, 121, 0.1);
+            border-left: 4px solid var(--color-secondary);
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius-md);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            line-height: 1.5;
+        }
+        [data-theme="dark"] .sim-disclaimer {
+            background: rgba(174, 142, 121, 0.05);
+        }
+        
+        .plan-result-card {
+            background: var(--color-white);
+            border: 1px solid rgba(89, 0, 4, 0.1);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-subtle);
+        }
+        [data-theme="dark"] .plan-result-card {
+            background: #190a0c;
+            border-color: rgba(174, 142, 121, 0.15);
+        }
+        .plan-result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1.5px solid rgba(89, 0, 4, 0.08);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .plan-title-wrapper h3 {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+        }
+        [data-theme="dark"] .plan-title-wrapper h3 {
+            color: var(--color-white);
+        }
+        .plan-badge {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--border-radius-pill);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        [data-theme="dark"] .plan-badge {
+            background: var(--color-secondary);
+            color: #190a0c;
+        }
+        .plan-total-price {
+            text-align: right;
+        }
+        .plan-total-price span {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            display: block;
+        }
+        .plan-total-price strong {
+            font-size: 2.2rem;
+            color: var(--color-primary);
+            font-family: var(--font-heading);
+        }
+        [data-theme="dark"] .plan-total-price strong {
+            color: var(--color-secondary);
+        }
+        
+        .prices-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            text-align: left;
+        }
+        .prices-table th, .prices-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 0.9rem;
+        }
+        [data-theme="dark"] .prices-table th, [data-theme="dark"] .prices-table td {
+            border-bottom-color: rgba(255, 255, 255, 0.05);
+        }
+        .prices-table th {
+            font-weight: 700;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+        [data-theme="dark"] .prices-table th {
+            color: var(--color-secondary);
+        }
+        
+        .sim-lead-card {
+            position: sticky;
+            top: 6rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="main-header" id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo-link" aria-label="AD Soluções Home">
+                <div class="logo-wrapper">
+                    <img src="assets/logo.png" alt="AD Soluções - Consultoria de Saúde e Seguros" class="logo-img" width="40" height="40">
+                    <span class="logo-text">AD <span class="logo-subtext">Soluções</span></span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Menu -->
+            <nav class="nav-menu" id="nav-menu" role="navigation" aria-label="Menu principal">
+                <ul>
+                    <li><a href="index.html#diferenciais" class="nav-link">Diferenciais</a></li>
+                    <li><a href="index.html#solucoes" class="nav-link">Soluções</a></li>
+                    <li><a href="index.html#sobre" class="nav-link">Nossa Trajetória</a></li>
+                    <li><a href="index.html#depoimentos" class="nav-link">Depoimentos</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Theme Toggle Button -->
+                <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Alternar tema escuro/claro">
+                    <i data-lucide="moon" class="theme-toggle-icon"></i>
+                </button>
+                <a href="index.html" class="btn btn-secondary btn-sm">Voltar ao Início</a>
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menu de navegação">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+        <div class="drawer-header">
+            <span class="logo-text-drawer">AD <span>Soluções</span></span>
+            <button class="drawer-close" id="drawer-close" aria-label="Fechar menu">&times;</button>
+        </div>
+        <nav class="drawer-nav">
+            <ul>
+                <li><a href="index.html#diferenciais" class="drawer-link">Diferenciais</a></li>
+                <li><a href="index.html#solucoes" class="drawer-link">Soluções</a></li>
+                <li><a href="index.html#sobre" class="drawer-link">Nossa Trajetória</a></li>
+                <li><a href="index.html#depoimentos" class="drawer-link">Depoimentos</a></li>
+            </ul>
+            <a href="index.html" class="btn btn-primary btn-block" style="margin-top: 2rem;">Voltar ao Início</a>
+        </nav>
+    </div>
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+
+    <!-- Main Content -->
+    <main>
+        <section class="simulator-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Transparência e Autonomia</span>
+                    <h2>Simulador de Preços</h2>
+                    <p class="section-description">
+                        Encontre o plano de saúde empresarial ou PME ideal. Configure sua simulação de forma rápida e transparente baseada em nossa tabela oficial.
+                    </p>
+                </div>
+
+                <div class="simulator-grid">
+                    <!-- Left Column: Simulator Controls & Results -->
+                    <div>
+                        <div class="sim-card">
+                            <h3 class="age-distribution-title" style="margin-top: 0;">1. Selecione os Filtros</h3>
+                            
+                            <div class="form-row">
+                                <div class="sim-input-group">
+                                    <label for="sim-operator">Operadora</label>
+                                    <select id="sim-operator" class="sim-select">
+                                        <!-- Will be loaded dynamically from JSON -->
+                                    </select>
+                                </div>
+                                <div class="sim-input-group">
+                                    <label for="sim-accommodation">Acomodação</label>
+                                    <select id="sim-accommodation" class="sim-select">
+                                        <option value="Enfermaria">Enfermaria</option>
+                                        <option value="Apartamento">Apartamento</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <h3 class="age-distribution-title">2. Adicionar Beneficiários</h3>
+                            <p style="margin-bottom: 1.5rem; font-size: 0.9rem;">Selecione a faixa etária e informe a quantidade de vidas para adicionar ao grupo de simulação:</p>
+                            
+                            <div class="form-row" style="align-items: flex-end;">
+                                <div class="sim-input-group">
+                                    <label for="sim-age-select">Faixa Etária</label>
+                                    <select id="sim-age-select" class="sim-select">
+                                        <!-- Loaded dynamically from JSON -->
+                                    </select>
+                                </div>
+                                <div class="sim-input-group">
+                                    <label for="sim-age-qty">Quantidade de Vidas</label>
+                                    <input type="number" id="sim-age-qty" class="sim-input" min="1" value="1">
+                                </div>
+                            </div>
+
+                            <button type="button" id="btn-add-age-group" class="btn btn-secondary" style="margin-top: 1rem; margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%;">
+                                <i data-lucide="plus-circle" style="width: 18px; height: 18px;"></i> Adicionar à Simulação
+                            </button>
+
+                            <h4 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 1rem; color: var(--color-primary);">Vidas no Grupo</h4>
+                            <div id="added-lives-list" style="margin-bottom: 2rem;">
+                                <p id="no-lives-placeholder" style="font-style: italic; font-size: 0.9rem; color: var(--color-text-muted);">Nenhuma vida adicionada ainda.</p>
+                            </div>
+
+                            <button id="btn-simulate" class="btn btn-primary btn-lg btn-block" style="margin-top: 1rem;">
+                                Simular Preços
+                                <i data-lucide="calculator" class="icon-inline" style="margin-left: 8px;"></i>
+                            </button>
+                        </div>
+
+                        <!-- Simulation Results -->
+                        <div class="results-container" id="results-container">
+                            <div class="sim-disclaimer">
+                                <strong>⚠️ Nota de Simulação:</strong> As tabelas apresentadas abaixo correspondem aos valores oficiais vigentes para o perfil empresarial/PME da Amil (mínimo 2 vidas). A contratação definitiva está sujeita a regras comerciais, análise de saúde e documentação da empresa (MEI/PJ).
+                            </div>
+
+                            <div id="plans-results-list">
+                                <!-- Dynamic plan results cards will be injected here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Lead Form Card -->
+                    <div>
+                        <div class="sim-card sim-lead-card">
+                            <h3 style="margin-bottom: 0.5rem; font-family: var(--font-heading); color: var(--color-primary);">Falar com Especialista</h3>
+                            <p style="font-size: 0.9rem; margin-bottom: 1.5rem; color: var(--color-text-muted);">
+                                Preencha abaixo para receber um estudo detalhado e isenção de carências personalizada baseada nesta simulação.
+                            </p>
+
+                            <form id="simulator-lead-form" novalidate>
+                                <div class="input-group">
+                                    <label for="lead-name">Nome completo</label>
+                                    <input type="text" id="lead-name" name="name" placeholder="Como podemos te chamar?" required class="sim-input" style="width: 100%;">
+                                    <span class="error-msg" id="name-error" style="display:none; color:#ff3b30; font-size:0.8rem; margin-top:0.25rem;"></span>
+                                </div>
+
+                                <div class="input-group" style="margin-top: 1.25rem;">
+                                    <label for="lead-phone">WhatsApp</label>
+                                    <input type="tel" id="lead-phone" name="phone" placeholder="(00) 00000-0000" required class="sim-input" style="width: 100%;">
+                                    <span class="error-msg" id="phone-error" style="display:none; color:#ff3b30; font-size:0.8rem; margin-top:0.25rem;"></span>
+                                </div>
+
+                                <div class="input-group" style="margin-top: 1.25rem;">
+                                    <label for="lead-email">E-mail <span style="font-weight:400; color: var(--color-text-muted);">(opcional)</span></label>
+                                    <input type="email" id="lead-email" name="email" placeholder="seu@email.com.br" class="sim-input" style="width: 100%;">
+                                </div>
+
+                                <!-- Pre-filled/captured info labels -->
+                                <div style="background: rgba(174, 142, 121, 0.08); border-radius: var(--border-radius-md); padding: 1rem; margin: 1.5rem 0;">
+                                    <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--color-secondary); display: block; margin-bottom: 0.5rem;">Resumo Enviado</span>
+                                    <div style="font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.25rem;">
+                                        <div><strong>Operadora:</strong> <span id="lead-summary-operator">-</span></div>
+                                        <div><strong>Acomodação:</strong> <span id="lead-summary-accommodation">-</span></div>
+                                        <div><strong>Vidas Totais:</strong> <span id="lead-summary-lives">-</span></div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-block btn-submit" id="btn-submit-sim-lead" style="width: 100%;">
+                                    <span class="btn-text">Saber mais e Falar com Consultor</span>
+                                    <span class="btn-loader hidden"></span>
+                                </button>
+                            </form>
+
+                            <!-- Success Message view -->
+                            <div id="sim-lead-success" class="hidden" style="text-align: center; margin-top: 1.5rem; border-top: 1px solid rgba(89,0,4,0.1); padding-top: 1.5rem;">
+                                <div style="color: #2d5a3d; font-size: 3rem; margin-bottom: 0.5rem;">✓</div>
+                                <h4 style="margin-bottom: 0.5rem; color: var(--color-primary);">Tudo Certo!</h4>
+                                <p style="font-size: 0.9rem; color: var(--color-text-muted);">
+                                    Recebemos sua simulação. Um de nossos especialistas seniores entrará em contato em breve via WhatsApp.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-about">
+                <div class="logo-wrapper">
+                    <img src="assets/logo.png" alt="AD Soluções" width="60" height="60">
+                    <span class="logo-text text-white">AD <span class="logo-subtext">Soluções</span></span>
+                </div>
+                <p class="footer-desc">Consultoria de longevidade especializada em saúde e seguros. Protegendo o trabalho, o patrimônio e as famílias com inteligência desde 2003.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="index.html#diferenciais">Diferenciais</a></li>
+                    <li><a href="index.html#solucoes">Soluções</a></li>
+                    <li><a href="index.html#sobre">Nossa Trajetória</a></li>
+                    <li><a href="index.html#depoimentos">Depoimentos</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Fale Conosco</h4>
+                <ul>
+                    <li>(11) 4003-0000</li>
+                    <li>contato@adsolucoes.com.br</li>
+                    <li>São Paulo, SP</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-container">
+                <p>&copy; 2026 AD Soluções. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Simulator Logic -->
+    <script src="simulator.js"></script>
+</body>
+</html>
