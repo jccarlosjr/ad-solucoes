@@ -267,8 +267,8 @@
             <a href="index.html" class="logo-link" aria-label="AD Soluções Home">
                 <div class="logo-wrapper">
                     <!-- Real logo from assets -->
-                    <img class="logo-inline-light" src="assets/light-logo-inline.svg" alt="AD Soluções">
-                    <img class="logo-inline-dark" src="assets/dark-logo-inline.svg" alt="AD Soluções">
+                    <img class="logo-inline-light" src="assets/logo-inline-light.png" alt="AD Soluções">
+                    <img class="logo-inline-dark" src="assets/logo-inline-dark.png" alt="AD Soluções">
                 </div>
             </a>
 
@@ -301,8 +301,16 @@
     <!-- Mobile Drawer Navigation -->
     <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
         <div class="drawer-header">
-            <span class="logo-text-drawer">AD <span>Soluções</span></span>
-            <button class="drawer-close" id="drawer-close" aria-label="Fechar menu">&times;</button>
+            <span class="logo-text-drawer">
+                <img width="30px" height="30px" class="drawer-logo-dark" src="assets/logo-dark.png" alt="AD Soluções">
+                <img width="30px" height="30px" class="drawer-logo-light" src="assets/logo-light.png" alt="AD Soluções">
+            </span>
+            <div class="drawer-actions">
+                <button class="theme-toggle-btn" aria-label="Alternar tema escuro/claro">
+                    <i data-lucide="moon" class="theme-toggle-icon"></i>
+                </button>
+                <button class="drawer-close" id="drawer-close" aria-label="Fechar menu">&times;</button>
+            </div>
         </div>
         <nav class="drawer-nav">
             <ul>

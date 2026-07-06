@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // 2. Dark Mode Native Toggle
     // ==========================================
-    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
     
     const getPreferredTheme = () => {
         const saved = localStorage.getItem('theme');
@@ -31,24 +31,24 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
         
-        if (themeToggleBtn) {
+        themeToggleBtns.forEach(btn => {
             const isDark = theme === 'dark';
-            themeToggleBtn.innerHTML = isDark 
+            btn.innerHTML = isDark 
                 ? '<i data-lucide="sun" class="theme-toggle-icon"></i>' 
                 : '<i data-lucide="moon" class="theme-toggle-icon"></i>';
-            initLucide();
-        }
+        });
+        initLucide();
     };
     
     // Initialize Theme
     setTheme(getPreferredTheme());
     
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
+    themeToggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
             setTheme(currentTheme === 'dark' ? 'light' : 'dark');
         });
-    }
+    });
 
 
     // ==========================================

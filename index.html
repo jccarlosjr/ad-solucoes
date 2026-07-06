@@ -116,8 +116,16 @@
     <!-- Mobile Drawer Navigation -->
     <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
         <div class="drawer-header">
-            <span class="logo-text-drawer">AD <span>Soluções</span></span>
-            <button class="drawer-close" id="drawer-close" aria-label="Fechar menu">&times;</button>
+            <span class="logo-text-drawer">
+                <img  width="30px" height="30px" class="drawer-logo-dark" src="assets/logo-dark.png" alt="AD Soluções">
+                <img width="30px" height="30px" class="drawer-logo-light" src="assets/logo-light.png" alt="AD Soluções">
+            </span>
+            <div class="drawer-actions">
+                <button class="theme-toggle-btn" aria-label="Alternar tema escuro/claro">
+                    <i data-lucide="moon" class="theme-toggle-icon"></i>
+                </button>
+                <button class="drawer-close" id="drawer-close" aria-label="Fechar menu">&times;</button>
+            </div>
         </div>
         <nav class="drawer-nav">
             <ul>
@@ -127,7 +135,6 @@
                 <li><a href="#depoimentos" class="drawer-link">Depoimentos</a></li>
                 <li><a href="simulador-grade.html" class="drawer-link">Simulador</a></li>
             </ul>
-            <button class="btn btn-primary btn-block btn-open-modal" style="margin-top: 2rem;">Agendar Diagnóstico</button>
         </nav>
     </div>
     <div class="drawer-overlay" id="drawer-overlay"></div>
