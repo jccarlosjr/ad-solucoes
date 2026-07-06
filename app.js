@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const getPreferredTheme = () => {
         const saved = localStorage.getItem('theme');
         if (saved) return saved;
-        return 'dark'; // Default to dark mode
+        return 'light'; // Default to light mode
     };
     
     const setTheme = (theme) => {

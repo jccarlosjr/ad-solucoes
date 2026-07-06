@@ -19,28 +19,44 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // 2. Dark Mode Toggle
     // ==========================================
-    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
     
     const setTheme = (theme) => {
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
-        if (themeToggleBtn) {
-            themeToggleBtn.innerHTML = theme === 'dark' 
+        themeToggleBtns.forEach(btn => {
+            btn.innerHTML = theme === 'dark' 
                 ? '<i data-lucide="sun" class="theme-toggle-icon"></i>' 
                 : '<i data-lucide="moon" class="theme-toggle-icon"></i>';
-            initLucide();
-        }
+        });
+        initLucide();
     };
     
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    const savedTheme = localStorage.getItem('theme') || 'light';
     setTheme(savedTheme);
     
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
+    themeToggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
             setTheme(currentTheme === 'dark' ? 'light' : 'dark');
         });
-    }
+    });
+
+    // ==========================================
+    // Header Scroll Effect
+    // ==========================================
+    const header = document.getElementById('header');
+    
+    const handleScroll = () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
 
     // ==========================================
     // 3. Mobile Navigation Menu Toggle
