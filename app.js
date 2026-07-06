@@ -351,6 +351,95 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnSuccessClose = document.getElementById('btn-success-close');
     if (btnSuccessClose) btnSuccessClose.addEventListener('click', closeModal);
 
+    // ==========================================
+    // 11. Auto-rotating Differentials Carousel
+    // ==========================================
+    const diffTrack = document.getElementById('diferenciais-track');
+    if (diffTrack) {
+        let cards = Array.from(diffTrack.children);
+        let cardWidth = cards[0].offsetWidth;
+        let gap = 32; // Default gap
+        let currentIndex = 0;
+        let intervalId = null;
+
+        const getStepWidth = () => {
+            const trackStyle = window.getComputedStyle(diffTrack);
+            gap = parseInt(trackStyle.gap || 32, 10);
+            cardWidth = cards[0].offsetWidth;
+            return cardWidth + gap;
+        };
+
+        const moveNext = () => {
+            if (window.innerWidth <= 768) return;
+            const containerWidth = diffTrack.parentElement.offsetWidth;
+            const totalWidth = diffTrack.scrollWidth;
+            const step = getStepWidth();
+            const maxVisible = Math.max(1, Math.floor(containerWidth / step));
+            const maxIndex = cards.length - maxVisible;
+
+            if (currentIndex >= maxIndex || (currentIndex * step + containerWidth >= totalWidth - 10)) {
+                currentIndex = 0;
+            } else {
+                currentIndex++;
+            }
+
+            diffTrack.style.transform = `translateX(-${currentIndex * step}px)`;
+        };
+
+        const movePrev = () => {
+            if (window.innerWidth <= 768) return;
+            const containerWidth = diffTrack.parentElement.offsetWidth;
+            const step = getStepWidth();
+            const maxVisible = Math.max(1, Math.floor(containerWidth / step));
+            const maxIndex = cards.length - maxVisible;
+
+            if (currentIndex <= 0) {
+                currentIndex = Math.max(0, maxIndex);
+            } else {
+                currentIndex--;
+            }
+
+            diffTrack.style.transform = `translateX(-${currentIndex * step}px)`;
+        };
+
+        const startCarousel = () => {
+            intervalId = setInterval(moveNext, 3500);
+        };
+
+        const stopCarousel = () => {
+            if (intervalId) clearInterval(intervalId);
+        };
+
+        // Initialize step calculations
+        getStepWidth();
+        startCarousel();
+
+        // Pause on hover
+        diffTrack.parentElement.addEventListener('mouseenter', stopCarousel);
+        diffTrack.parentElement.addEventListener('mouseleave', startCarousel);
+
+        // Manual Navigation Buttons
+        const prevBtn = document.getElementById('diff-prev-btn');
+        const nextBtn = document.getElementById('diff-next-btn');
+
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                stopCarousel();
+                movePrev();
+            });
+            nextBtn.addEventListener('click', () => {
+                stopCarousel();
+                moveNext();
+            });
+        }
+
+        // Recalibrate on resize
+        window.addEventListener('resize', () => {
+            const step = getStepWidth();
+            diffTrack.style.transform = `translateX(-${currentIndex * step}px)`;
+        });
+    }
+
 });
 
 

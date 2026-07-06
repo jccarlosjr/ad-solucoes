@@ -2614,3 +2614,377 @@ img {
     text-transform: uppercase;
 }
 
+/* ==========================================
+   Diferenciais Carousel Styles
+   ========================================== */
+.diferenciais-carousel-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding: 1.5rem 0;
+}
+
+.diferenciais-carousel-track {
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    width: max-content;
+}
+
+.diferenciais-carousel-track .diferencial-card {
+    width: 370px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+    .diferenciais-carousel-container {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 1rem 0;
+    }
+    .diferenciais-carousel-track {
+        transform: none !important;
+        transition: none !important;
+        gap: 1.25rem;
+        padding: 0 1.5rem;
+    }
+    .diferenciais-carousel-track .diferencial-card {
+        width: calc(100vw - 4.5rem);
+        scroll-snap-align: center;
+        margin: 0;
+    }
+    .carousel-nav-btn {
+        display: none !important;
+    }
+}
+
+.card-badges-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(232, 212, 217, 0.15);
+}
+
+.badge-pill-destaque {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--border-radius-pill);
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+[data-theme="dark"] .badge-pill-destaque {
+    background-color: rgba(174, 142, 121, 0.12);
+    color: var(--color-secondary);
+}
+
+.carousel-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: var(--border-radius-pill);
+    background-color: var(--color-white);
+    border: 1px solid rgba(89, 0, 4, 0.15);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition-normal);
+    box-shadow: var(--shadow-subtle);
+}
+
+[data-theme="dark"] .carousel-nav-btn {
+    background-color: #190a0c;
+    border-color: rgba(174, 142, 121, 0.25);
+    color: var(--color-secondary);
+}
+
+.carousel-nav-btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-medium);
+}
+
+[data-theme="dark"] .carousel-nav-btn:hover {
+    background-color: var(--color-secondary);
+    color: #190a0c;
+    border-color: var(--color-secondary);
+}
+
+.carousel-nav-btn.prev-btn {
+    left: 1rem;
+}
+
+.carousel-nav-btn.next-btn {
+    right: 1rem;
+}
+
+/* Hide navigation buttons on mobile screen if touch is preferred, or make them smaller */
+@media (max-width: 580px) {
+    .carousel-nav-btn {
+        width: 36px;
+        height: 36px;
+    }
+    .carousel-nav-btn.prev-btn {
+        left: 0.5rem;
+    }
+    .carousel-nav-btn.next-btn {
+        right: 0.5rem;
+    }
+}
+
+/* ==========================================
+   Porque AD Section Styles
+   ========================================== */
+.porque-ad-section {
+    position: relative;
+    z-index: 2;
+}
+
+.porque-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+    align-items: start;
+    margin-top: 3.5rem;
+}
+
+.porque-diferenciais {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.porque-diferencial {
+    display: flex;
+    gap: 1.75rem;
+    padding: 2.2rem 2rem;
+    background-color: var(--color-white);
+    border: 1px solid rgba(232, 212, 217, 0.18);
+    border-radius: var(--border-radius-lg);
+    transition: var(--transition-smooth);
+}
+
+[data-theme="dark"] .porque-diferencial {
+    background-color: var(--color-white);
+    border-color: rgba(174, 142, 121, 0.12);
+}
+
+.porque-diferencial:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--color-soft-pink);
+}
+
+.dif-num {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+    min-width: 45px;
+}
+
+[data-theme="dark"] .dif-num {
+    color: var(--color-secondary);
+}
+
+.dif-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.dif-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+[data-theme="dark"] .dif-title {
+    color: var(--color-text-dark);
+}
+
+.dif-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    opacity: 0.8;
+}
+
+.porque-action {
+    margin-top: 1rem;
+}
+
+.porque-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.transformacao-card {
+    background-color: var(--color-white);
+    border: 1px solid rgba(232, 212, 217, 0.18);
+    border-radius: var(--border-radius-lg);
+    padding: 2.5rem 2rem;
+    box-shadow: var(--shadow-medium);
+}
+
+[data-theme="dark"] .transformacao-card {
+    background-color: var(--color-white);
+    border-color: rgba(174, 142, 121, 0.12);
+}
+
+.section-tag-small {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.transf-item {
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid transparent;
+}
+
+.transf-antes {
+    background-color: rgba(165, 1, 4, 0.05);
+    border-color: rgba(165, 1, 4, 0.12);
+}
+
+[data-theme="dark"] .transf-antes {
+    background-color: rgba(165, 1, 4, 0.1);
+    border-color: rgba(165, 1, 4, 0.2);
+}
+
+.label-antes {
+    font-weight: 700;
+    color: #A50104;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+}
+
+.transf-experiencia {
+    background: linear-gradient(135deg, rgba(89, 0, 4, 0.08), rgba(174, 142, 121, 0.06));
+    border-color: rgba(174, 142, 121, 0.25);
+}
+
+.label-experiencia {
+    font-weight: 700;
+    color: var(--color-secondary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+}
+
+.transf-depois {
+    background-color: rgba(45, 90, 61, 0.05);
+    border-color: rgba(45, 90, 61, 0.12);
+}
+
+[data-theme="dark"] .transf-depois {
+    background-color: rgba(45, 90, 61, 0.1);
+    border-color: rgba(45, 90, 61, 0.2);
+}
+
+.label-depois {
+    font-weight: 700;
+    color: #2d5a3d;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+}
+
+.transf-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--color-text-dark);
+    opacity: 0.85;
+}
+
+.transf-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0;
+    color: var(--color-secondary);
+}
+
+.porque-quote-card {
+    background-color: var(--color-primary-light);
+    border: 1px solid rgba(89, 0, 4, 0.08);
+    border-radius: var(--border-radius-lg);
+    padding: 2.2rem 2rem;
+}
+
+.serif-quote {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+[data-theme="dark"] .serif-quote {
+    color: var(--color-secondary);
+}
+
+.quote-signature {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-secondary);
+}
+
+/* Responsividade do Porque AD */
+@media (max-width: 1024px) {
+    .porque-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .porque-diferencial {
+        padding: 1.8rem 1.5rem;
+        gap: 1.25rem;
+    }
+    .dif-num {
+        font-size: 1.8rem;
+        min-width: 35px;
+    }
+    .transformacao-card {
+        padding: 2rem 1.5rem;
+    }
+}
+
+
+
+

@@ -93,7 +93,7 @@
                     <li><a href="#sobre" class="nav-link">Nossa Trajetória</a></li>
                     <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
                     <!-- <li><a href="simulador.html" class="nav-link highlight-link" style="color: var(--color-secondary); font-weight: 700;">Simulador (Dinâmico)</a></li> -->
-                    <li><a href="simulador-grade.html" class="nav-link highlight-link" style="color: var(--color-secondary); font-weight: 700;">Simulador</a></li>
+                    <li><a href="simulador-grade.html" class="nav-link highlight-link">Simulador</a></li>
                 </ul>
             </nav>
 
@@ -102,7 +102,7 @@
                 <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Alternar tema escuro/claro">
                     <i data-lucide="moon" class="theme-toggle-icon"></i>
                 </button>
-                <button class="btn btn-primary btn-sm btn-open-modal" id="btn-header-diagnostico">Agendar Diagnóstico</button>
+                <button class="btn btn-primary btn-sm btn-open-modal" id="btn-header-diagnostico">Falar com o consultor</button>
                 <!-- Mobile Menu Button -->
                 <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menu de navegação">
                     <span class="bar"></span>
@@ -125,8 +125,7 @@
                 <li><a href="#solucoes" class="drawer-link">Soluções</a></li>
                 <li><a href="#sobre" class="drawer-link">Nossa Trajetória</a></li>
                 <li><a href="#depoimentos" class="drawer-link">Depoimentos</a></li>
-                <li><a href="simulador.html" class="drawer-link" style="color: var(--color-secondary); font-weight: 700;">Simulador (Dinâmico)</a></li>
-                <li><a href="simulador-grade.html" class="drawer-link" style="color: var(--color-secondary); font-weight: 700;">Simulador (Grade)</a></li>
+                <li><a href="simulador-grade.html" class="drawer-link">Simulador</a></li>
             </ul>
             <button class="btn btn-primary btn-block btn-open-modal" style="margin-top: 2rem;">Agendar Diagnóstico</button>
         </nav>
@@ -153,7 +152,7 @@
                         <span class="accent-text">cuidado que protege</span>.
                     </h1>
                     <p class="hero-subtitle">
-                        A consultoria definitiva para profissionais liberais que buscam blindar o núcleo familiar e estruturar o próprio negócio com excelência, com 20 anos de experiência e cuidado genuíno em cada análise.
+                        A consultoria definitiva para profissionais liberais que buscam proteger o núcleo familiar e estruturar o próprio negócio com excelência, com 20 anos de experiência e cuidado genuíno em cada análise.
                     </p>
                     <div class="hero-actions-container">
                         <button class="btn btn-primary btn-lg btn-open-modal" id="btn-hero-primary">
@@ -208,164 +207,194 @@
         <section id="diferenciais" class="section-padding-large diferencias-section reveal">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">Por que a AD Soluções?</span>
-                    <h2>Como redefinimos o conceito de proteção</h2>
+                    <span class="section-tag">O que oferecemos</span>
+                    <h2>Soluções para cada fase da sua vida</h2>
                     <p class="section-description">
-                        Recusamos o modelo de corretoras comuns focadas apenas em fechar contratos rápidos e brigar por centavos. Nossa atuação baseia-se em cinco pilares fundamentais de excelência técnica e humana.
+                        Análise macro do mercado, não apenas cotações comparativas, pois o objetivo é encontrar o que é genuinamente certo para você, não o que é mais fácil de vender.
                     </p>
                 </div>
 
-                <div class="diferenciais-grid">
-                    <!-- Card 1 -->
-                    <div class="diferencial-card">
-                        <div class="card-icon-box bg-marsala-light">
-                            <i data-lucide="trending-up" class="icon-diferencial color-primary"></i>
+                <div class="diferenciais-carousel-container">
+                    <button class="carousel-nav-btn prev-btn" id="diff-prev-btn" aria-label="Slide anterior">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button class="carousel-nav-btn next-btn" id="diff-next-btn" aria-label="Próximo slide">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                    <div class="diferenciais-carousel-track" id="diferenciais-track">
+                        <!-- Card 1 -->
+                        <div class="diferencial-card">
+                            <div class="card-icon-box bg-marsala-light">
+                                <i data-lucide="heart-pulse" class="icon-diferencial color-primary"></i>
+                            </div>
+                            <h3>Planos de Saúde</h3>
+                            <p>Análise macro do mercado, não apenas cotações comparativas, pois o objetivo é encontrar o que é genuinamente certo para você, não o que é mais fácil de vender.</p>
+                            <div class="card-badges-footer">
+                                <span class="badge-pill-destaque">Pessoa Física</span>
+                                <span class="badge-pill-destaque">Empresarial</span>
+                                <span class="badge-pill-destaque">Portabilidade</span>
+                            </div>
                         </div>
-                        <h3>Análise Macro</h3>
-                        <p>Visão estratégica e profunda de todo o cenário de saúde e proteção. Projetamos o impacto financeiro e jurídico a longo prazo de cada decisão, muito além de meras planilhas comparativas.</p>
-                    </div>
 
-                    <!-- Card 2 -->
-                    <div class="diferencial-card">
-                        <div class="card-icon-box bg-green-light">
-                            <i data-lucide="handshake" class="icon-diferencial color-secondary"></i>
+                        <!-- Card 2 -->
+                        <div class="diferencial-card">
+                            <div class="card-icon-box bg-green-light">
+                                <i data-lucide="heart" class="icon-diferencial color-secondary"></i>
+                            </div>
+                            <h3>Seguros de Vida</h3>
+                            <p>Proteção patrimonial inteligente para profissionais liberais, estruturada para proteger o seu trabalho, o seu sustento e o futuro de todas as pessoas que dependem de você.</p>
+                            <div class="card-badges-footer">
+                                <span class="badge-pill-destaque">Vida Individual</span>
+                                <span class="badge-pill-destaque">Invalidez</span>
+                                <span class="badge-pill-destaque">DIT</span>
+                            </div>
                         </div>
-                        <h3>Pós-Venda Ativo</h3>
-                        <p>O cuidado verdadeiro começa após a assinatura da apólice. Acompanhamos ativamente reajustes, alterações regulatórias e transições de vida dos nossos clientes, oferecendo suporte humano incondicional.</p>
-                    </div>
 
-                    <!-- Card 3 -->
-                    <div class="diferencial-card">
-                        <div class="card-icon-box bg-marsala-light">
-                            <i data-lucide="scale" class="icon-diferencial color-primary"></i>
+                        <!-- Card 3 -->
+                        <div class="diferencial-card">
+                            <div class="card-icon-box bg-marsala-light">
+                                <i data-lucide="briefcase" class="icon-diferencial color-primary"></i>
+                            </div>
+                            <h3>Benefícios para CNPJ</h3>
+                            <p>Estruture os benefícios do seu negócio com inteligência tributária e proteção real, contemplando MEI, PJ autônomo, sócios de clínica e escritórios profissionais.</p>
+                            <div class="card-badges-footer">
+                                <span class="badge-pill-destaque">Saúde Coletiva</span>
+                                <span class="badge-pill-destaque">Odontológico</span>
+                                <span class="badge-pill-destaque">PJ</span>
+                            </div>
                         </div>
-                        <h3>Sinceridade Estrutural</h3>
-                        <p>Dizemos o que você precisa ouvir para estar de fato seguro, não o que facilita o fechamento comercial imediato. Sem letras miúdas e sem omitir limitações contratuais.</p>
-                    </div>
 
-                    <!-- Card 4 -->
-                    <div class="diferencial-card">
-                        <div class="card-icon-box bg-green-light">
-                            <i data-lucide="award" class="icon-diferencial color-secondary"></i>
+                        <!-- Card 4 -->
+                        <div class="diferencial-card">
+                            <div class="card-icon-box bg-green-light">
+                                <i data-lucide="refresh-cw" class="icon-diferencial color-secondary"></i>
+                            </div>
+                            <h3>Revisão de Contratos</h3>
+                            <p>Auditoria completa dos seus contratos vigentes, com identificação de coberturas inadequadas, reajustes abusivos e oportunidades de portabilidade mais vantajosa.</p>
+                            <div class="card-badges-footer">
+                                <span class="badge-pill-destaque">Auditoria</span>
+                                <span class="badge-pill-destaque">Reajuste</span>
+                                <span class="badge-pill-destaque">Portabilidade</span>
+                            </div>
                         </div>
-                        <h3>Bagagem de 20 Anos</h3>
-                        <p>Fundada em 2003, acumulamos a solidez e o conhecimento empírico que nenhuma nova corretora digital pode replicar. Sabemos exatamente como os contratos se comportam em momentos de crise.</p>
+
+                        <!-- Card 5 -->
+                        <div class="diferencial-card">
+                            <div class="card-icon-box bg-green-light">
+                                <i data-lucide="users" class="icon-diferencial color-secondary"></i>
+                            </div>
+                            <h3>Proteção Familiar</h3>
+                            <p>Blindagem completa para o núcleo familiar, com saúde, vida e previdência estruturados de forma integrada, pois a família protegida é o maior patrimônio que existe.</p>
+                            <div class="card-badges-footer">
+                                <span class="badge-pill-destaque">Família</span>
+                                <span class="badge-pill-destaque">Previdência</span>
+                                <span class="badge-pill-destaque">Legado</span>
+                            </div>
+                        </div>
+
+                        <!-- Card 6 -->
+                        <div class="diferencial-card">
+                            <div class="card-icon-box bg-green-light">
+                                <i data-lucide="phone" class="icon-diferencial color-secondary"></i>
+                            </div>
+                            <h3>Consultoria Contínua</h3>
+                            <p>Mapeamento preventivo e suporte ativo de longo prazo. Estamos presentes em cada acionamento, reajuste e alteração nas regulamentações do mercado de saúde.</p>
+                            <div class="card-badges-footer">
+                                <span class="badge-pill-destaque">Pós-venda</span>
+                                <span class="badge-pill-destaque">Suporte</span>
+                                <span class="badge-pill-destaque">Longevidade</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Soluções Section -->
-        <section id="solucoes" class="section-padding-large soluções-section bg-soft-pink-tint reveal">
+        <!-- Porque Escolher a AD Section -->
+        <section id="porque-ad" class="section-padding-large porque-ad-section reveal">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">Nossas Soluções</span>
-                    <h2>Estruturação inteligente de benefícios e proteção</h2>
-                    <p class="section-description">
-                        Atuamos em duas frentes fundamentais, integrando soluções corporativas e familiares para garantir a longevidade da sua trajetória.
-                    </p>
+                    <span class="section-tag">Por que escolher a AD</span>
+                    <h2>A diferença que só o cuidado explica</h2>
+                    <p class="section-description">Não competimos por preço, mas atuamos no espaço onde o cliente já entendeu que precisa de proteção e busca estruturá-la da forma mais inteligente possível.</p>
                 </div>
-
-                <div class="solucoes-container">
-                    <!-- Solução 1: Saúde Coletiva -->
-                    <div class="solucao-block">
-                        <div class="solucao-content">
-                            <span class="solucao-badge badge-green">Para o seu Negócio</span>
-                            <h3>Planos de Saúde Coletiva e PMEs</h3>
-                            <p>
-                                Traduzimos a complexidade técnica e a burocracia dos contratos de saúde empresariais. Analisamos profundamente sinistralidade e reajustes para criar planos eficientes para consultórios, clínicas médicas, escritórios de advocacia e PMEs.
-                            </p>
-                            <ul class="solucao-features">
-                                <li>
-                                    <i data-lucide="check" class="feature-check"></i>
-                                    Gestão ativa e preventiva da sinistralidade
-                                </li>
-                                <li>
-                                    <i data-lucide="check" class="feature-check"></i>
-                                    Planejamento de transição de contratos sem carências abusivas
-                                </li>
-                                <li>
-                                    <i data-lucide="check" class="feature-check"></i>
-                                    Estruturação de coparticipação inteligente e governança de benefícios
-                                </li>
-                            </ul>
-                            <button class="btn btn-secondary btn-open-modal">Analisar Plano Atual</button>
-                        </div>
-                        <div class="solucao-visual bg-pattern-green">
-                            <div class="solucao-mockup-card glass-effect">
-                                <div class="mockup-header">
-                                    <span class="mockup-dot"></span>
-                                    <span class="mockup-dot"></span>
-                                    <span class="mockup-dot"></span>
-                                    <span class="mockup-title">Diagnóstico de Saúde CNPJ</span>
-                                </div>
-                                <div class="mockup-body">
-                                    <div class="mockup-metric">
-                                        <span class="metric-label">Custos Projetados (Próximo Reajuste)</span>
-                                        <span class="metric-val color-primary" style="color: var(--color-primary);">-24.3%</span>
-                                    </div>
-                                    <div class="mockup-bar-container">
-                                        <div class="mockup-bar bar-1"></div>
-                                    </div>
-                                    <div class="mockup-status-list">
-                                        <div class="status-item-mock"><i data-lucide="shield-check" class="status-icon"></i> Isenção de Carência: <strong>Garantida</strong></div>
-                                        <div class="status-item-mock"><i data-lucide="activity" class="status-icon"></i> Mitigação de Sinistralidade: <strong>Ativa</strong></div>
-                                    </div>
-                                </div>
+                <div class="porque-grid">
+                    <div class="porque-diferenciais">
+                        <div class="porque-diferencial">
+                            <div class="dif-num">01</div>
+                            <div class="dif-content">
+                                <p class="dif-title">Análise macro, não apenas cotações</p>
+                                <p class="dif-desc">Enquanto o mercado compara preços, a AD avalia o contexto completo, incluindo a cobertura real, sinistralidade, histórico da operadora e a real adequação ao perfil de cada cliente.</p>
                             </div>
+                        </div>
+                        <div class="porque-diferencial">
+                            <div class="dif-num">02</div>
+                            <div class="dif-content">
+                                <p class="dif-title">Pós-venda ativo, presente quando importa</p>
+                                <p class="dif-desc">O cuidado não termina na assinatura, pois a AD permanece ao seu lado nos acionamentos, negativas, reajustes e revisões, exatamente quando a maioria dos corretores já desapareceu.</p>
+                            </div>
+                        </div>
+                        <div class="porque-diferencial">
+                            <div class="dif-num">03</div>
+                            <div class="dif-content">
+                                <p class="dif-title">Linguagem que você entende</p>
+                                <p class="dif-desc">O domínio técnico da AD é traduzido em analogias claras, para que você não precise ser especialista, mas possa tomar cada decisão com plena confiança.</p>
+                            </div>
+                        </div>
+                        <div class="porque-diferencial">
+                            <div class="dif-num">04</div>
+                            <div class="dif-content">
+                                <p class="dif-title">Sinceridade estrutural</p>
+                                <p class="dif-desc">A AD recomenda apenas o que recomendaria para a própria família, e se a solução não for a melhor para você, isso será dito com clareza, mesmo que prejudique a venda.</p>
+                            </div>
+                        </div>
+                        <div class="porque-diferencial">
+                            <div class="dif-num">05</div>
+                            <div class="dif-content">
+                                <p class="dif-title">20 anos de bagagem consolidada</p>
+                                <p class="dif-desc">Uma solidez construída ao longo de décadas que nenhum entrante pode simular. A experiência acumulada é o ativo mais poderoso da AD, garantindo análises que antecipam problemas antes mesmo que o cliente os perceba.</p>
+                            </div>
+                        </div>
+                        <div class="porque-action">
+                            <button class="btn btn-primary btn-open-modal">
+                                Quero conhecer a AD pessoalmente
+                                <i data-lucide="arrow-right" class="icon-inline" style="margin-left: 8px;"></i>
+                            </button>
                         </div>
                     </div>
-
-                    <!-- Solução 2: Seguro de Vida -->
-                    <div class="solucao-block reverse">
-                        <div class="solucao-content">
-                            <span class="solucao-badge badge-marsala">Para sua Família</span>
-                            <h3>Seguros de Vida & Proteção de Renda</h3>
-                            <p>
-                                Profissionais liberais de alto padrão dedicam suas vidas a estruturar patrimônios sólidos, mas muitas vezes esquecem de blindar o sustento familiar na ocorrência de imprevistos. Desenhamos apólices sob medida focadas em resguardar seu padrão de vida e simplificar processos sucessórios.
-                            </p>
-                            <ul class="solucao-features">
-                                <li>
-                                    <i data-lucide="check" class="feature-check"></i>
-                                    Proteção de renda contra invalidez temporária ou profissional (DIT)
-                                </li>
-                                <li>
-                                    <i data-lucide="check" class="feature-check"></i>
-                                    Estruturação de blindagem patrimonial com liquidez imediata
-                                </li>
-                                <li>
-                                    <i data-lucide="check" class="feature-check"></i>
-                                    Planejamento sucessório livre de inventários e ITCMD
-                                </li>
-                            </ul>
-                            <button class="btn btn-secondary btn-open-modal">Estruturar Proteção</button>
-                        </div>
-                        <div class="solucao-visual bg-pattern-marsala">
-                            <div class="solucao-mockup-card glass-effect">
-                                <div class="mockup-header">
-                                    <span class="mockup-dot"></span>
-                                    <span class="mockup-dot"></span>
-                                    <span class="mockup-dot"></span>
-                                    <span class="mockup-title">Planejamento Sucessório &amp; Renda</span>
-                                </div>
-                                <div class="mockup-body">
-                                    <div class="mockup-metric">
-                                        <span class="metric-label">Liquidez Imediata (Livre de ITCMD)</span>
-                                        <span class="metric-val color-secondary" style="color: var(--color-primary);">100%</span>
-                                    </div>
-                                    <div class="mockup-coverage-box">
-                                        <div class="coverage-row">
-                                            <span>Proteção de Renda (DIT)</span>
-                                            <strong>R$ 15k / mês</strong>
-                                        </div>
-                                        <div class="coverage-row">
-                                            <span>Blindagem Patrimonial</span>
-                                            <strong>R$ 1.5M</strong>
-                                        </div>
-                                    </div>
-                                    <div class="mockup-tag"><i data-lucide="heart" class="icon-inline" style="width: 12px; height: 12px; margin-right: 4px;"></i> Família Blindada</div>
-                                </div>
+                    <div class="porque-visual">
+                        <div class="transformacao-card">
+                            <span class="section-tag-small">A transformação que entregamos</span>
+                            
+                            <div class="transf-item transf-antes">
+                                <p class="transf-label label-antes">Antes da AD</p>
+                                <p class="transf-text">Proteção vista como burocracia e custo, com contratos opacos e incerteza sobre o que aconteceria diante de um imprevisto.</p>
                             </div>
+                            
+                            <div class="transf-arrow">
+                                <i data-lucide="arrow-down"></i>
+                            </div>
+                            
+                            <div class="transf-item transf-experiencia">
+                                <p class="transf-label label-experiencia">A Experiência AD</p>
+                                <p class="transf-text">Escuta. Análise. Clareza. Nenhuma letra miúda sem explicação.</p>
+                            </div>
+                            
+                            <div class="transf-arrow">
+                                <i data-lucide="arrow-down"></i>
+                            </div>
+                            
+                            <div class="transf-item transf-depois">
+                                <p class="transf-label label-depois">Depois da AD</p>
+                                <p class="transf-text">Proteção enxergada como patrimônio e estratégia, com paz de espírito genuína e uma parceria de longo prazo construída sobre confiança.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="porque-quote-card">
+                            <p class="serif-quote">
+                                “Você não precisa entender tudo sobre saúde e seguros. Você precisa ter alguém em quem confiar.”
+                            </p>
+                            <span class="quote-signature">AD Soluções · Big Idea</span>
                         </div>
                     </div>
                 </div>
@@ -377,7 +406,7 @@
             <div class="container sobre-container">
                 <div class="sobre-text-column">
                     <span class="section-tag text-left">Nossa Trajetória</span>
-                    <h2>Mais de duas décadas de compromisso e solidez.</h2>
+                    <h2>Mais do que uma corretora. Uma parceira de longevidade.</h2>
                     
                     <p class="paragraph-highlight">
                         A AD Soluções nasceu em 2003 a partir de uma constatação vital: por trás de cada CNPJ de sucesso, existe um núcleo familiar que depende inteiramente daquela estrutura para se manter protegido.
@@ -393,7 +422,7 @@
 
                     <div class="founder-quote">
                         <blockquote>
-                            "Não vendemos contratos. Entregamos longevidade e a certeza de que o futuro que você está construindo hoje permanecerá inabalável amanhã."
+                            "Com a AD, você não adquire apenas uma cobertura, você ganha um conselheiro dedicado a proteger a longevidade da sua família e a estabilidade de toda a sua trajetória."
                         </blockquote>
                     </div>
                 </div>
@@ -492,9 +521,9 @@
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">Dúvidas Frequentes</span>
-                    <h2>Clareza sobre o mercado de saúde e proteção</h2>
+                    <h2>Clareza antes de qualquer decisão</h2>
                     <p class="section-description">
-                        Esclarecemos as principais dúvidas de profissionais liberais e empresários antes de estruturarem suas apólices e benefícios.
+                        Transparência é um valor inegociável para nós, por isso respondemos aqui o que mais nos perguntam, sem jargões e sem letra miúda.
                     </p>
                 </div>
 
@@ -502,12 +531,12 @@
                     <!-- FAQ 1 -->
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false">
-                            <span>Como a AD Soluções ajuda na transição de planos de saúde para PMEs?</span>
+                            <span>A consultoria da AD tem algum custo?</span>
                             <i data-lucide="chevron-down" class="faq-chevron"></i>
                         </button>
                         <div class="faq-answer">
                             <div class="faq-answer-inner">
-                                <p>Analisamos detalhadamente o contrato atual de sua empresa para garantir a isenção de carências (obedecendo às normas da ANS e regras da operadora de destino) e estruturar tabelas de coparticipação inteligente. Além disso, mapeamos preventivamente a sinistralidade para mitigar aumentos anuais abusivos, mantendo a qualidade de atendimento aos seus sócios e colaboradores.</p>
+                                <p>A consultoria da AD Soluções é completamente gratuita para o cliente final. Nossa remuneração vem das operadoras e seguradoras com quem trabalhamos, e isso nunca influencia nossa recomendação, pois nos orientamos exclusivamente pelas necessidades reais de cada cliente.</p>
                             </div>
                         </div>
                     </div>
@@ -515,12 +544,12 @@
                     <!-- FAQ 2 -->
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false">
-                            <span>O que é a cobertura DIT (Diária de Incapacidade Temporária) e por que ela é vital para profissionais liberais?</span>
+                            <span>Qual a diferença entre a AD e uma corretora comum?</span>
                             <i data-lucide="chevron-down" class="faq-chevron"></i>
                         </button>
                         <div class="faq-answer">
                             <div class="faq-answer-inner">
-                                <p>Para médicos, dentistas, advogados e outros profissionais liberais de alta renda, a receita cessa caso não possam trabalhar devido a doenças ou acidentes. A Diária de Incapacidade Temporária (DIT) garante o pagamento de rendimentos mensais equivalentes ao seu faturamento habitual durante o período de afastamento. Ela serve como a retaguarda que protege o sustento e o consultório sem forçar a queima de reservas financeiras.</p>
+                                <p>Enquanto corretoras comuns focam na venda e desaparecem após a assinatura, a AD atua como consultora estratégica de longo prazo, fazendo análise macro do mercado, explicando cada cláusula, estando presente nos acionamentos e revisando periodicamente a sua cobertura. Nossa métrica de sucesso é a longevidade da parceria, não o volume de contratos.</p>
                             </div>
                         </div>
                     </div>
@@ -528,12 +557,12 @@
                     <!-- FAQ 3 -->
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false">
-                            <span>Como é possível isentar o seguro de vida de inventário e impostos de sucessão?</span>
+                            <span>Atendo como PJ autônomo. A AD consegue estruturar minha proteção?</span>
                             <i data-lucide="chevron-down" class="faq-chevron"></i>
                         </button>
                         <div class="faq-answer">
                             <div class="faq-answer-inner">
-                                <p>Pela legislação brasileira, o Seguro de Vida não é considerado herança para fins de inventário e partilha (Art. 794 do Código Civil). Portanto, a indenização é paga aos beneficiários indicados em poucos dias úteis, sem retenção de ITCMD (imposto de transmissão causa mortis) ou custas de advogados. Trata-se de uma ferramenta jurídica essencial para prover liquidez imediata ao núcleo familiar durante a sucessão patrimonial.</p>
+                                <p>Profissionais liberais com CNPJ são exatamente o nosso público principal. Estruturamos planos de saúde coletivos por adesão, seguros de vida adequados à realidade do autônomo, benefícios empresariais com inteligência tributária e proteção patrimonial integrada, considerando todas as particularidades de quem opera como PJ.</p>
                             </div>
                         </div>
                     </div>
@@ -541,15 +570,42 @@
                     <!-- FAQ 4 -->
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false">
-                            <span>Por que a AD Soluções afirma que não briga por "menor preço" ou tabelas promocionais?</span>
+                            <span>Já tenho um plano contratado. Faz sentido falar com a AD mesmo assim?</span>
                             <i data-lucide="chevron-down" class="faq-chevron"></i>
                         </button>
                         <div class="faq-answer">
                             <div class="faq-answer-inner">
-                                <p>Corretoras tradicionais operam oferecendo cotações prateleira baratas que, nos momentos mais críticos (como sinistros ou reajustes de faixa etária), costumam apresentar negativas de cobertura ou aumentos inviáveis. A AD Soluções atua como uma consultoria estratégica: desenhamos a apólice com base nas reais necessidades do cliente e na segurança a longo prazo. Transparência estrutural e solidez valem muito mais do que descontos que custam caro depois.</p>
+                                <p>Fazemos revisão completa de contratos vigentes, identificando coberturas inadequadas, reajustes abusivos, cláusulas desfavoráveis e oportunidades de portabilidade mais vantajosa. Muitos clientes descobrem que estavam pagando mais por uma proteção inferior ao que realmente precisavam, e a análise é sempre gratuita e sem compromisso.</p>
                             </div>
                         </div>
                     </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Quanto tempo leva para ter uma proposta?</span>
+                            <i data-lucide="chevron-down" class="faq-chevron"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p>Após o primeiro contato e o entendimento do seu contexto, geralmente apresentamos uma análise completa em até 48 horas. Não trabalhamos com cotações genéricas, pois cada proposta é construída especificamente para o perfil e as necessidades reais do cliente. A qualidade leva um pouco mais de tempo, mas a diferença é perceptível.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>A AD atende apenas profissionais médicos?</span>
+                            <i data-lucide="chevron-down" class="faq-chevron"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p>Atendemos todos os profissionais liberais, incluindo médicos, advogados, dentistas, arquitetos, engenheiros, contadores, consultores e qualquer profissional com CNPJ ou pessoa física que busque uma gestão inteligente da sua proteção. Também estruturamos benefícios para pequenas e médias empresas.</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
