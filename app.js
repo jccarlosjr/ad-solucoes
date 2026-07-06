@@ -352,92 +352,94 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnSuccessClose) btnSuccessClose.addEventListener('click', closeModal);
 
     // ==========================================
-    // 11. Auto-rotating Differentials Carousel
+    // 11. Continuous Infinite Marquee Carousel
     // ==========================================
     const diffTrack = document.getElementById('diferenciais-track');
     if (diffTrack) {
-        let cards = Array.from(diffTrack.children);
-        let cardWidth = cards[0].offsetWidth;
-        let gap = 32; // Default gap
-        let currentIndex = 0;
-        let intervalId = null;
+        // Clone original cards for infinite marquee effect
+        const originalCards = Array.from(diffTrack.children);
+        originalCards.forEach(card => {
+            const clone = card.cloneNode(true);
+            diffTrack.appendChild(clone);
+        });
 
-        const getStepWidth = () => {
-            const trackStyle = window.getComputedStyle(diffTrack);
-            gap = parseInt(trackStyle.gap || 32, 10);
-            cardWidth = cards[0].offsetWidth;
-            return cardWidth + gap;
+        const container = diffTrack.parentElement;
+        let scrollPos = 0;
+        let isPaused = false;
+        let animationFrameId = null;
+        let touchTimeout = null;
+        const speed = 0.5; // pixels per frame
+
+        const getResetPoint = () => {
+            return diffTrack.scrollWidth / 2;
         };
 
-        const moveNext = () => {
-            if (window.innerWidth <= 768) return;
-            const containerWidth = diffTrack.parentElement.offsetWidth;
-            const totalWidth = diffTrack.scrollWidth;
-            const step = getStepWidth();
-            const maxVisible = Math.max(1, Math.floor(containerWidth / step));
-            const maxIndex = cards.length - maxVisible;
-
-            if (currentIndex >= maxIndex || (currentIndex * step + containerWidth >= totalWidth - 10)) {
-                currentIndex = 0;
-            } else {
-                currentIndex++;
+        const updateMarquee = () => {
+            if (!isPaused) {
+                scrollPos += speed;
+                const limit = getResetPoint();
+                if (scrollPos >= limit) {
+                    scrollPos = 0; // Seamless reset
+                }
+                diffTrack.style.transform = `translate3d(-${scrollPos}px, 0, 0)`;
             }
-
-            diffTrack.style.transform = `translateX(-${currentIndex * step}px)`;
+            animationFrameId = requestAnimationFrame(updateMarquee);
         };
 
-        const movePrev = () => {
-            if (window.innerWidth <= 768) return;
-            const containerWidth = diffTrack.parentElement.offsetWidth;
-            const step = getStepWidth();
-            const maxVisible = Math.max(1, Math.floor(containerWidth / step));
-            const maxIndex = cards.length - maxVisible;
+        // Start animation
+        animationFrameId = requestAnimationFrame(updateMarquee);
 
-            if (currentIndex <= 0) {
-                currentIndex = Math.max(0, maxIndex);
-            } else {
-                currentIndex--;
-            }
+        // Pause/Play controls
+        const pauseMarquee = () => { 
+            isPaused = true; 
+            if (touchTimeout) clearTimeout(touchTimeout);
+        };
+        const playMarquee = () => { isPaused = false; };
 
-            diffTrack.style.transform = `translateX(-${currentIndex * step}px)`;
+        // Desktop hover events
+        container.addEventListener('mouseenter', pauseMarquee);
+        container.addEventListener('mouseleave', playMarquee);
+
+        // Touch hover/pause events with timeout resume
+        container.addEventListener('touchstart', () => {
+            pauseMarquee();
+        }, { passive: true });
+
+        const resumeTouch = () => {
+            if (touchTimeout) clearTimeout(touchTimeout);
+            touchTimeout = setTimeout(() => {
+                isPaused = false;
+            }, 2000); // Resume auto-scrolling 2s after touch stops
         };
 
-        const startCarousel = () => {
-            intervalId = setInterval(moveNext, 3500);
-        };
+        container.addEventListener('touchend', resumeTouch, { passive: true });
+        container.addEventListener('touchcancel', resumeTouch, { passive: true });
 
-        const stopCarousel = () => {
-            if (intervalId) clearInterval(intervalId);
-        };
-
-        // Initialize step calculations
-        getStepWidth();
-        startCarousel();
-
-        // Pause on hover
-        diffTrack.parentElement.addEventListener('mouseenter', stopCarousel);
-        diffTrack.parentElement.addEventListener('mouseleave', startCarousel);
-
-        // Manual Navigation Buttons
+        // Manual Chevron Button Clicks (both Mobile & Desktop)
         const prevBtn = document.getElementById('diff-prev-btn');
         const nextBtn = document.getElementById('diff-next-btn');
 
         if (prevBtn && nextBtn) {
             prevBtn.addEventListener('click', () => {
-                stopCarousel();
-                movePrev();
+                pauseMarquee();
+                scrollPos -= 280; // Scroll back by a chunk
+                if (scrollPos < 0) {
+                    scrollPos = getResetPoint() + scrollPos;
+                }
+                diffTrack.style.transform = `translate3d(-${scrollPos}px, 0, 0)`;
+                resumeTouch();
             });
             nextBtn.addEventListener('click', () => {
-                stopCarousel();
-                moveNext();
+                pauseMarquee();
+                scrollPos += 280; // Scroll forward by a chunk
+                const limit = getResetPoint();
+                if (scrollPos >= limit) {
+                    scrollPos = scrollPos - limit;
+                }
+                diffTrack.style.transform = `translate3d(-${scrollPos}px, 0, 0)`;
+                resumeTouch();
             });
         }
-
-        // Recalibrate on resize
-        window.addEventListener('resize', () => {
-            const step = getStepWidth();
-            diffTrack.style.transform = `translateX(-${currentIndex * step}px)`;
-        });
     }
 
 });

@@ -2242,31 +2242,56 @@ img {
 /* ==========================================
    Logo img in header (replaces SVG)
    ========================================== */
-.logo-img {
-    width: 40px;
-    height: 40px;
+.logo-inline-light {
+    display: none;
+    height: 25px;
+    width: auto;
     object-fit: contain;
-    border-radius: 50%;
-    /* slight background to pop on light header */
-    background: transparent;
-    flex-shrink: 0;
 }
 
-/* ==========================================
-   Hero Brand Logo (replaces lotus SVG)
-   ========================================== */
-.hero-brand-logo {
+.logo-inline-dark {
+    display: block;
+    height: 25px;
+    width: auto;
+    object-fit: contain;
+}
+
+.hero-logo-light {
+    display: none;
+}
+
+.hero-logo-dark {
+    display: block;
+}
+
+.hero-logo-light,
+.hero-logo-dark {
     width: 160px;
     height: 160px;
     object-fit: contain;
     border-radius: 50%;
-    /* soft drop shadow to float over the hero */
     filter: drop-shadow(0 8px 32px rgba(122, 48, 72, 0.15));
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.lotus-graphic-container:hover .hero-brand-logo {
+.lotus-graphic-container:hover img {
     transform: scale(1.04) rotate(2deg);
+}
+
+[data-theme="dark"] .logo-inline-light {
+    display: block;
+}
+
+[data-theme="dark"] .hero-logo-light {
+    display: block;
+}
+
+[data-theme="dark"] .logo-inline-dark {
+    display: none;
+}
+
+[data-theme="dark"] .hero-logo-dark {
+    display: none;
 }
 
 /* ==========================================
@@ -2641,24 +2666,19 @@ img {
 
 @media (max-width: 768px) {
     .diferenciais-carousel-container {
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        padding: 1rem 0;
+        overflow: hidden;
+        padding: 1.5rem 0;
     }
     .diferenciais-carousel-track {
-        transform: none !important;
-        transition: none !important;
         gap: 1.25rem;
-        padding: 0 1.5rem;
+        padding: 0;
     }
     .diferenciais-carousel-track .diferencial-card {
-        width: calc(100vw - 4.5rem);
-        scroll-snap-align: center;
+        width: 280px;
         margin: 0;
     }
     .carousel-nav-btn {
-        display: none !important;
+        display: flex !important;
     }
 }
 
